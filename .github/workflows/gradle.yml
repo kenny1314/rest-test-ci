@@ -6,8 +6,8 @@ on:
   pull_request:
     branches: [ master ]
 
-env:
-  IMAGE_NAME: rest-test-master
+#env:
+#  IMAGE_NAME: rest-test-master
 
 jobs:
   deploy:
