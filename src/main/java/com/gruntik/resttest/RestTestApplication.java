@@ -11,6 +11,7 @@ public class RestTestApplication {
     public static void main(String[] args) {
         SpringApplication.run(RestTestApplication.class, args);
         System.out.println("Message for test actions");
+        System.out.println("Message for test actions");
     }
 
 }
