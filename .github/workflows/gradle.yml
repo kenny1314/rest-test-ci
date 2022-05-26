@@ -19,7 +19,7 @@ jobs:
           key: ${{secrets.DEPLOY_KEY}}
           username: ${{secrets.DEPLOY_USERNAME}}
           script: |
-          echo 'hello igor by Digital Ocean'
-          echo 'hello igor by Digital Ocean'
+            echo 'hello igor by Digital Ocean'
+            echo 'hello igor by Digital Ocean'
 #          cd /home/prj1/rest-test
 #          gradle installSumService
