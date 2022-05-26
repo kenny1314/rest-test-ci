@@ -19,6 +19,8 @@ jobs:
           key: ${{secrets.DEPLOY_KEY}}
           username: ${{secrets.DEPLOY_USERNAME}}
           script: |
+            gradle --version
+            gradle build --refresh-dependencies
             cd /home/prj1/rest-test
             gradle installSumService
 #            curl -L https://services.gradle.org/distributions/gradle-7.4.2-all.zip -o gradle-7.4.2-all.zip
