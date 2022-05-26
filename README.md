@@ -1,4 +1,4 @@
-# TEST TASK
+# TEST TASK with CI/CD
 
 ### How to run?
 
