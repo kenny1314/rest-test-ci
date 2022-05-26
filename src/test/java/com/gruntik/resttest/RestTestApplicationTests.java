@@ -39,8 +39,8 @@ class RestTestApplicationTests {
         Assertions.assertEquals(1, storeRepository.deleteByName("igor"));
     }
 
-    @Test
-    void ruinTests() {
-        Assertions.assertEquals(1, 2);
-    }
+//    @Test
+//    void ruinTests() {
+//        Assertions.assertEquals(1, 2);
+//    }
 }
