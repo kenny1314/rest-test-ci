@@ -26,7 +26,7 @@ jobs:
           distribution: 'temurin'
           cache: gradle
       - name: Login to GitHub Container Registry
-        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u grunik-for --password-stdin
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Grant execute permission for dradlew
         run: chmod +x gradlew
@@ -36,7 +36,7 @@ jobs:
 
       - name: Tag & publish to GitHub Container Registry
         run: |
-          IMAGE_ID=ghcr.io/grunik-for/$IMAGE_NAME
+          IMAGE_ID=ghcr.io/${{ github.repository_owner }}/$IMAGE_NAME
           VERSION=latest
           docker tag $IMAGE_NAME $IMAGE_ID:$VERSION
           docker push $IMAGE_ID:$VERSION
