@@ -21,9 +21,10 @@ jobs:
           script: |
             java --version
             gradle --version
-            echo 'export GRADLE_HOME=/app/gradle-7.4.2-all' >> $HOME/.bashrc
-            echo 'export PATH=$PATH:$GRADLE_HOME/bin' >> $HOME/.bashrc
-            /bin/bash -c "source $HOME/.bashrc"
+            ./gradlew wrapper --gradle-version=7.4.2
+#            echo 'export GRADLE_HOME=/app/gradle-7.4.2-all' >> $HOME/.bashrc
+#            echo 'export PATH=$PATH:$GRADLE_HOME/bin' >> $HOME/.bashrc
+#            /bin/bash -c "source $HOME/.bashrc"
             gradle build --refresh-dependencies
             cd /home/prj1/rest-test
             gradle installSumService
