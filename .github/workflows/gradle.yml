@@ -25,6 +25,5 @@ jobs:
             echo 'export GRADLE_HOME=/app/gradle-7.4.2-all' >> $HOME/.bashrc
             echo 'export PATH=$PATH:$GRADLE_HOME/bin' >> $HOME/.bashrc
             /bin/bash -c "source $HOME/.bashrc"
-
-#            cd /home/prj1/rest-test
-#            gradle installSumService
+            cd /home/prj1/rest-test
+            gradle installSumService
