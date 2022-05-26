@@ -19,11 +19,12 @@ jobs:
           key: ${{secrets.DEPLOY_KEY}}
           username: ${{secrets.DEPLOY_USERNAME}}
           script: |
-            curl -L https://services.gradle.org/distributions/gradle-7.4.2-all.zip -o gradle-7.4.2-all.zip
-            apt-get install -y unzip
-            unzip gradle-7.4.2-all.zip
-            echo 'export GRADLE_HOME=/app/gradle-7.4.2-all' >> $HOME/.bashrc
-            echo 'export PATH=$PATH:$GRADLE_HOME/bin' >> $HOME/.bashrc
-            /bin/bash -c "source $HOME/.bashrc"
+#            curl -L https://services.gradle.org/distributions/gradle-7.4.2-all.zip -o gradle-7.4.2-all.zip
+#            apt-get install -y unzip
+#            unzip gradle-7.4.2-all.zip
+#            echo 'export GRADLE_HOME=/app/gradle-7.4.2-all' >> $HOME/.bashrc
+#            echo 'export PATH=$PATH:$GRADLE_HOME/bin' >> $HOME/.bashrc
+#            /bin/bash -c "source $HOME/.bashrc"
+            echo gradle --version
             cd /home/prj1/rest-test
             gradle installSumService
