@@ -22,5 +22,6 @@ jobs:
           key: ${{secrets.SSH_KEY}}
           username: ${{secrets.SSH_USERNAME}}
           java-version: '11'
+          distribution: 'gruntik'
 
           script: echo 'hello igor by Digital Ocean'
