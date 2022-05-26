@@ -22,10 +22,10 @@ jobs:
             java --version
             gradle --version
             gradle build --refresh-dependencies
-            curl -L https://services.gradle.org/distributions/gradle-7.4.2-all.zip -o gradle-7.4.2-all.zip
-            apt-get install -y unzip
-            pwd -L
-            unzip gradle-7.4.2-all.zip
+#            curl -L https://services.gradle.org/distributions/gradle-7.4.2-all.zip -o gradle-7.4.2-all.zip
+#            apt-get install -y unzip
+#            pwd -L
+#            unzip gradle-7.4.2-all.zip
             echo 'export GRADLE_HOME=/app/gradle-7.4.2-all' >> $HOME/.bashrc
             echo 'export PATH=$PATH:$GRADLE_HOME/bin' >> $HOME/.bashrc
             /bin/bash -c "source $HOME/.bashrc"
