@@ -16,12 +16,12 @@ jobs:
 
     steps:
       - name: Deploy Digital Ocean
-        uses: actions/setup-java@v3
+        uses: actions/ssh-action@v3
         with:
           host: ${{secrets.SSH_HOST}}
           key: ${{secrets.SSH_KEY}}
           username: ${{secrets.SSH_USERNAME}}
-          java-version: '11'
-          distribution: 'gruntik'
+#          java-version: '11'
+#          distribution: 'gruntik'
 
           script: echo 'hello igor by Digital Ocean'
