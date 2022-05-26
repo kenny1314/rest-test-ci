@@ -6,9 +6,6 @@ on:
   pull_request:
     branches: [ master ]
 
-#env:
-#  IMAGE_NAME: rest-test-master
-
 jobs:
   deploy:
 
@@ -21,7 +18,7 @@ jobs:
           host: ${{secrets.DEPLOY_HOST}}
           key: ${{secrets.DEPLOY_KEY}}
           username: ${{secrets.DEPLOY_USERNAME}}
-#          java-version: '11'
-#          distribution: 'gruntik'
-
-          script: echo 'hello igor by Digital Ocean'
+          script: |
+          echo 'hello igor by Digital Ocean'
+          cd /home/prj1/rest-test
+          gradle installSumService
