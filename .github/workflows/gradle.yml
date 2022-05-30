@@ -26,8 +26,10 @@ jobs:
             source /etc/profile.d/gradle.sh
             cd /home/prj1/rest-test
             gradle installSumService
+            echo '---show pwd'
             pwd
             ls
+            echo '---cd /home/prj1/rest-test/build'
             cd /home/prj1/rest-test/build
             ls
             pwd
