@@ -18,5 +18,6 @@ jobs:
           key: ${{secrets.DEPLOY_KEY}}
           username: ${{secrets.DEPLOY_USERNAME}}
           script: |
+            ls -l
             cd /home/prj1/rest-test/build
             java -jar sum_service.jar
