@@ -19,3 +19,4 @@ jobs:
           script: |
             apt install openjdk-17-jre-headless
             java --version
+            gradle --version
