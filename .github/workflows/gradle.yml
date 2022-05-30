@@ -10,6 +10,12 @@ jobs:
   deploy:
     runs-on: ubuntu-20.04
     steps:
+      - name: Lint Code Base
+        uses: github/super-linter@v4
+        env:
+          VALIDATE_ALL_CODEBASE: false
+          DEFAULT_BRANCH: master
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: install gradle and update project
         uses: appleboy/ssh-action@master
         with:
@@ -32,3 +38,4 @@ jobs:
             cd /home/prj1/rest-test-ci/build
             java -jar sum_service.jar
             sudo fuser -n tcp -k 8005
+        
