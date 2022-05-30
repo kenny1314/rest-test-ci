@@ -28,6 +28,7 @@ jobs:
             gradle installSumService
             pwd
             ls
-            ls /home/prj1/rest-test/build
+            cd /home/prj1/rest-test/build
+            pwd
 #            cd /home/prj1/rest-test/build
 #            java -jar sum-service.jar
