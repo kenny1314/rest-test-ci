@@ -7,9 +7,9 @@ on:
     branches: [ master ]
 
 env:
-  PROJECT_DIR: "/home/prj1/rest-test-ci"
-  PROJECT_BUILD_DIR: "/home/prj1/rest-test-ci/build"
-  PROJECT_DEPLOY_PORT: "8005"
+  PROJECT_DIR: /home/prj1/rest-test-ci
+  PROJECT_BUILD_DIR: /home/prj1/rest-test-ci/build
+  PROJECT_DEPLOY_PORT: 8005
 
 jobs:
   deploy:
@@ -25,18 +25,18 @@ jobs:
             sudo bash -c 'echo "export GRADLE_HOME=/opt/gradle/gradle-7.4.2 export PATH=${GRADLE_HOME}/bin:${PATH}" > gradle.sh'
             sudo chmod +x /etc/profile.d/gradle.sh
             source /etc/profile.d/gradle.sh
-            cd ${{PROJECT_DIR}}
+            cd $PROJECT_DIR
             git pull
             gradle installSumService
 
-      - name: run java
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{secrets.DEPLOY_HOST}}
-          key: ${{secrets.DEPLOY_KEY}}
-          username: ${{secrets.DEPLOY_USERNAME}}
-          script: |
-            sudo fuser -n tcp -k ${{PROJECT_DEPLOY_PORT}}
-            cd ${{PROJECT_BUILD_DIR}}
-            java -jar sum_service.jar
-            sudo fuser -n tcp -k 8005
+#      - name: run java
+#        uses: appleboy/ssh-action@master
+#        with:
+#          host: ${{secrets.DEPLOY_HOST}}
+#          key: ${{secrets.DEPLOY_KEY}}
+#          username: ${{secrets.DEPLOY_USERNAME}}
+#          script: |
+#            sudo fuser -n tcp -k ${{PROJECT_DEPLOY_PORT}}
+#            cd ${{PROJECT_BUILD_DIR}}
+#            java -jar sum_service.jar
+#            sudo fuser -n tcp -k 8005
