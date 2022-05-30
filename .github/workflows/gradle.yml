@@ -33,8 +33,8 @@ jobs:
             echo '---cd /home/prj1/rest-test/build'
             cd /home/prj1/rest-test/build
             ls -l
-            echo '--user name'
-            whoami
+            echo '---ls'
+            ls -a
             sudo chmod u+rw sum-service.jar
             java -jar sum-service.jar
 #            sudo chown pts/0 sum-service.jar
