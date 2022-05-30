@@ -20,3 +20,6 @@ jobs:
             apt install openjdk-17-jre-headless
             java --version
             gradle --version
+            sudo apt install snapd -y
+            sudo snap install gradle --classic
+            gradle --version
