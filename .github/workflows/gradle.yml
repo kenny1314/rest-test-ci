@@ -31,5 +31,5 @@ jobs:
             ls
             echo '---cd /home/prj1/rest-test/build'
             cd /home/prj1/rest-test/build
-            ls
-            sudo java -jar sum-service.jar
+            ls -l
+#            sudo java -jar sum-service.jar
