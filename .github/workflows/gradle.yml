@@ -35,6 +35,6 @@ jobs:
             who
             sudo su
             who
-            sudo chown pts sum-service.jar
+            sudo chown pts/0 sum-service.jar
 #            rm ./sum-service.jar
 #            java -jar sum-service.jar
