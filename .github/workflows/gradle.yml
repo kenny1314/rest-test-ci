@@ -18,10 +18,9 @@ jobs:
           host: ${{secrets.DEPLOY_HOST}}
           key: ${{secrets.DEPLOY_KEY}}
           username: ${{secrets.DEPLOY_USERNAME}}
-          script: |
-            java --version
-            gradle --version
-            mvn --version
+#          script: |
+#            java --version
+#            gradle --version
 #            ./gradlew wrapper --gradle-version=7.4.2
 #            gradle build --refresh-dependencies
 #            cd /home/prj1/rest-test
