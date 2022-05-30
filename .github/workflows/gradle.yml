@@ -18,18 +18,12 @@ jobs:
           host: ${{secrets.DEPLOY_HOST}}
           key: ${{secrets.DEPLOY_KEY}}
           username: ${{secrets.DEPLOY_USERNAME}}
-#          script: |
-#            java --version
-#            gradle --version
-#            ./gradlew wrapper --gradle-version=7.4.2
-#            gradle build --refresh-dependencies
-#            cd /home/prj1/rest-test
-#            gradle installSumService
-#            echo 'export GRADLE_HOME=/app/gradle-7.4.2-all' >> $HOME/.bashrc
-#            echo 'export PATH=$PATH:$GRADLE_HOME/bin' >> $HOME/.bashrc
-#            /bin/bash -c "source $HOME/.bashrc"
-#            gradle build --refresh-dependencies
-#            curl -L https://services.gradle.org/distributions/gradle-7.4.2-all.zip -o gradle-7.4.2-all.zip
-#            apt-get install -y unzip
-#            pwd -L
-#            unzip gradle-7.4.2-all.zip
+  build:
+    runs-on: ubuntu-20.04
+    name: Java ${{ matrix.Java }} sample
+    steps:
+      - name: Setup java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'adopt'
+          java-version: '17'
