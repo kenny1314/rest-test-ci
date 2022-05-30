@@ -7,17 +7,6 @@ on:
     branches: [ master ]
 
 jobs:
-  deploy:
-
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Deploy Digital Ocean
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{secrets.DEPLOY_HOST}}
-          key: ${{secrets.DEPLOY_KEY}}
-          username: ${{secrets.DEPLOY_USERNAME}}
   build:
     runs-on: ubuntu-20.04
     name: Java ${{ matrix.Java }} sample
@@ -27,3 +16,14 @@ jobs:
         with:
           distribution: 'adopt'
           java-version: '17'
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy Digital Ocean
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{secrets.DEPLOY_HOST}}
+          key: ${{secrets.DEPLOY_KEY}}
+          username: ${{secrets.DEPLOY_USERNAME}}
+          script:|
+          java --version
