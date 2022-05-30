@@ -26,7 +26,8 @@ jobs:
             sudo chmod +x /etc/profile.d/gradle.sh
             source /etc/profile.d/gradle.sh
             cd /home/prj1/rest-test
-            gradle installSumService
+            echo 'here'
+            echo 'here'
             echo '---show pwd'
             pwd
             ls
@@ -36,7 +37,8 @@ jobs:
             echo '---ls'
             ls -a
             sudo find . -name "rest*"
+#            gradle installSumService
 #            sudo chmod u+rw sum-service.jar
-#            java -jar sum-service.jar
+            java -jar sum-service.jar
 #            sudo chown pts/0 sum-service.jar
 #            rm ./sum-service.jar
