@@ -35,7 +35,6 @@ jobs:
             ls -l
             echo '--user name'
             whoami
-            sudo su
-            sudo chown pts/0 sum-service.jar
+            java -jar sum-service.jar
+#            sudo chown pts/0 sum-service.jar
 #            rm ./sum-service.jar
-#            java -jar sum-service.jar
