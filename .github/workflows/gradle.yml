@@ -18,3 +18,5 @@ jobs:
           username: ${{secrets.DEPLOY_USERNAME}}
           script: |
             export
+            sudo bash -c 'echo "export GRADLE_HOME=/app/gradle-7.4.2-all export PATH=${GRADLE_HOME}/bin:${PATH}" > gradle.sh'
+            export
