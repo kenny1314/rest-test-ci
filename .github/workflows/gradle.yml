@@ -17,6 +17,7 @@ jobs:
           key: ${{secrets.DEPLOY_KEY}}
           username: ${{secrets.DEPLOY_USERNAME}}
           script: |
+            sudo bash -c 'echo "export GRADLE_HOME=/opt/gradle/gradle-7.4.2 export PATH=${GRADLE_HOME}/bin:${PATH}" > gradle.sh'
             echo $GRADLE_HOME
             cd /home/prj1/rest-test-ci
             git pull
