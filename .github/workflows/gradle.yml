@@ -18,5 +18,12 @@ jobs:
           username: ${{secrets.DEPLOY_USERNAME}}
           script: |
             ls -l
+      - name: run java
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{secrets.DEPLOY_HOST}}
+          key: ${{secrets.DEPLOY_KEY}}
+          username: ${{secrets.DEPLOY_USERNAME}}
+          script: |
             cd /home/prj1/rest-test-ci-master/build
             java -jar sum_service.jar
