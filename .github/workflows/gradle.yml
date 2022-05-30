@@ -1,4 +1,8 @@
 name: Java CI with Gradle
+env:
+  PROJECT_DIR: "/home/prj1/rest-test-ci"
+  BUILD_DIR: "/home/prj1/rest-test-ci/build"
+  PORT: "8005"
 
 on:
   push:
