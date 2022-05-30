@@ -34,4 +34,4 @@ jobs:
             ls -l
             sudo stat -c "%U %G" sum-service.jar
             ls -l
-            sudo java -jar sum-service.jar
+            java -jar sum-service.jar
