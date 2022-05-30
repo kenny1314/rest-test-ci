@@ -8,8 +8,8 @@ on:
 
 env:
   PROJECT_DIR: "/home/prj1/rest-test-ci"
-  BUILD_DIR: "/home/prj1/rest-test-ci/build"
-  PORT: "8005"
+  PROJECT_BUILD_DIR: "/home/prj1/rest-test-ci/build"
+  PROJECT_DEPLOY_PORT: "8005"
 
 jobs:
   deploy:
