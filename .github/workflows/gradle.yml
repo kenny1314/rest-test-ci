@@ -26,7 +26,8 @@ jobs:
             source /etc/profile.d/gradle.sh
             cd /home/prj1/rest-test
             gradle installSumService
+            pwd
             ls
-            ls /home/prj/rest-test/build
+            ls /home/prj1/rest-test/build
 #            cd /home/prj1/rest-test/build
 #            java -jar sum-service.jar
