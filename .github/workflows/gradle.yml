@@ -23,6 +23,8 @@ jobs:
             cd /home/prj1/rest-test-ci
             git pull
             gradle installSumService
+          run: |
+            echo 'hello'
 
       - name: run java
         uses: appleboy/ssh-action@master
