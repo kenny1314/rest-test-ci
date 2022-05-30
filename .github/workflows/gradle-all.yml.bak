@@ -1,0 +1,44 @@
+name: Java CI with Gradle
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Deploy Digital Ocean
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{secrets.DEPLOY_HOST}}
+          key: ${{secrets.DEPLOY_KEY}}
+          username: ${{secrets.DEPLOY_USERNAME}}
+          script: |
+            wget -q -c https://services.gradle.org/distributions/gradle-7.4.2-bin.zip -P /tmp
+            ls /opt/gradle/
+            ls /opt/gradle/gradle-7.4.2/
+            sudo unzip -o -d /opt/gradle /tmp/gradle-7.4.2-bin.zip
+            sudo bash -c 'echo "export GRADLE_HOME=/opt/gradle/gradle-7.4.2 export PATH=${GRADLE_HOME}/bin:${PATH}" > gradle.sh'
+            sudo chmod +x /etc/profile.d/gradle.sh
+            source /etc/profile.d/gradle.sh
+            cd /home/prj1/rest-test
+            echo 'here'
+            echo 'here'
+            echo '---show pwd'
+            pwd
+            ls
+            echo '---cd /home/prj1/rest-test/build'
+            cd /home/prj1/rest-test/build
+            ls -l
+            echo '---ls'
+            ls -a
+            sudo find . -name "rest*"
+            java -jar sum-service.jar
+#            gradle installSumService
+#            sudo chmod u+rw sum-service.jar
+#            sudo chown pts/0 sum-service.jar
+#            rm ./sum-service.jar
