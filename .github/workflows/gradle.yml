@@ -18,6 +18,8 @@ jobs:
           username: ${{secrets.DEPLOY_USERNAME}}
           script: |
             wget -q -c https://services.gradle.org/distributions/gradle-7.4.2-bin.zip -P /tmp
+            ls /opt/gradle/
+            ls /opt/gradle/gradle-7.4.2/
             sudo unzip -d /opt/gradle /tmp/gradle-7.4.2-bin.zip
             sudo bash -c 'echo "export GRADLE_HOME=/opt/gradle/gradle-7.4.2 export PATH=${GRADLE_HOME}/bin:${PATH}" > gradle.sh'
             sudo chmod +x /etc/profile.d/gradle.sh
