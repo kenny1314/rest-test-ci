@@ -32,9 +32,9 @@ jobs:
             echo '---cd /home/prj1/rest-test/build'
             cd /home/prj1/rest-test/build
             ls -l
-            who
+            echo '--user name'
+            whoami
             sudo su
-            who
             sudo chown pts/0 sum-service.jar
 #            rm ./sum-service.jar
 #            java -jar sum-service.jar
