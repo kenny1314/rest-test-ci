@@ -21,10 +21,11 @@ jobs:
           script: |
             java --version
             gradle --version
-            ./gradlew wrapper --gradle-version=7.4.2
-            gradle build --refresh-dependencies
-            cd /home/prj1/rest-test
-            gradle installSumService
+            mvn --version
+#            ./gradlew wrapper --gradle-version=7.4.2
+#            gradle build --refresh-dependencies
+#            cd /home/prj1/rest-test
+#            gradle installSumService
 #            echo 'export GRADLE_HOME=/app/gradle-7.4.2-all' >> $HOME/.bashrc
 #            echo 'export PATH=$PATH:$GRADLE_HOME/bin' >> $HOME/.bashrc
 #            /bin/bash -c "source $HOME/.bashrc"
