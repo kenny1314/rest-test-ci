@@ -6,6 +6,11 @@ on:
   pull_request:
     branches: [ master ]
 
+env:
+  PROJECT_DIR: "/home/prj1/rest-test-ci"
+  BUILD_DIR: "/home/prj1/rest-test-ci/build"
+  PORT: "8005"
+
 jobs:
   deploy:
     runs-on: ubuntu-20.04
