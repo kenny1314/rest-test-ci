@@ -10,22 +10,16 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy Digital Ocean
+      - name: install gradle
         uses: appleboy/ssh-action@master
         with:
           host: ${{secrets.DEPLOY_HOST}}
           key: ${{secrets.DEPLOY_KEY}}
           username: ${{secrets.DEPLOY_USERNAME}}
           script: |
-            wget -q -c https://services.gradle.org/distributions/gradle-7.4.2-bin.zip -P /tmp
-            ls /opt/gradle/
-            ls /opt/gradle/gradle-7.4.2/
-            sudo unzip -o -d /opt/gradle /tmp/gradle-7.4.2-bin.zip
-            sudo bash -c 'echo "export GRADLE_HOME=/opt/gradle/gradle-7.4.2 export PATH=${GRADLE_HOME}/bin:${PATH}" > gradle.sh'
-            sudo chmod +x /etc/profile.d/gradle.sh
-            source /etc/profile.d/gradle.sh
             cd /home/prj1/rest-test-ci-master
             gradle installSumService
+
       - name: run java
         uses: appleboy/ssh-action@master
         with:
