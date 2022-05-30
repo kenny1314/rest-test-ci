@@ -17,14 +17,10 @@ jobs:
           key: ${{secrets.DEPLOY_KEY}}
           username: ${{secrets.DEPLOY_USERNAME}}
           script: |
-            apt install openjdk-17-jre-headless
-            java --version
-            gradle --version
             wget -c https://services.gradle.org/distributions/gradle-7.4.2-bin.zip -P /tmp
-            ls /tmp
             sudo unzip -d /opt/gradle /tmp/gradle-7.4.2-bin.zip
-            ls /opt/gradle
             sudo bash -c 'echo "export GRADLE_HOME=/opt/gradle/gradle-7.4.2 export PATH=${GRADLE_HOME}/bin:${PATH}" > gradle.sh'
             sudo chmod +x /etc/profile.d/gradle.sh
             source /etc/profile.d/gradle.sh
-            gradle --version
+            cd /home/prj1/rest-test
+            ls
