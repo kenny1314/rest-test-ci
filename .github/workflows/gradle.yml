@@ -1,8 +1,4 @@
 name: Java CI with Gradle
-env:
-  PROJECT_DIR: "/home/prj1/rest-test-ci"
-  BUILD_DIR: "/home/prj1/rest-test-ci/build"
-  PORT: "8005"
 
 on:
   push:
@@ -24,7 +20,7 @@ jobs:
             sudo bash -c 'echo "export GRADLE_HOME=/opt/gradle/gradle-7.4.2 export PATH=${GRADLE_HOME}/bin:${PATH}" > gradle.sh'
             sudo chmod +x /etc/profile.d/gradle.sh
             source /etc/profile.d/gradle.sh
-            cd ${{ env.PROJECT_DIR }}
+            cd /home/prj1/rest-test-ci
             git pull
             gradle installSumService
 
