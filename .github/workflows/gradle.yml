@@ -34,6 +34,6 @@ jobs:
           key: ${{secrets.DEPLOY_KEY}}
           username: ${{secrets.DEPLOY_USERNAME}}
           script: |
+            sudo fuser -n tcp -k 8005
             cd /home/prj1/rest-test-ci-master/build
             java -jar sum_service.jar
-            sudo kill -9 $(sudo lsof -t -i:8005)
