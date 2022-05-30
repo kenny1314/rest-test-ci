@@ -17,6 +17,13 @@ jobs:
           key: ${{secrets.DEPLOY_KEY}}
           username: ${{secrets.DEPLOY_USERNAME}}
           script: |
-            export
-            sudo bash -c 'echo "export GRADLE_HOME=/app/gradle-7.4.2-all export PATH=${GRADLE_HOME}/bin:${PATH}" > gradle.sh'
+            wget -q -c https://services.gradle.org/distributions/gradle-7.4.2-bin.zip -P /tmp
+            ls /opt/gradle/
+            ls /opt/gradle/gradle-7.4.2/
+            sudo unzip -o -d /opt/gradle /tmp/gradle-7.4.2-bin.zip
+            sudo bash -c 'echo "export GRADLE_HOME=/opt/gradle/gradle-7.4.2 export PATH=${GRADLE_HOME}/bin:${PATH}" > gradle.sh'
+            sudo chmod +x /etc/profile.d/gradle.sh
+            cd /home/prj1/rest-test-ci
+            git pull
+            gradle installSumService
             export
