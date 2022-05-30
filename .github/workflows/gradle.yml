@@ -24,8 +24,18 @@ jobs:
             sudo bash -c 'echo "export GRADLE_HOME=/opt/gradle/gradle-7.4.2 export PATH=${GRADLE_HOME}/bin:${PATH}" > gradle.sh'
             sudo chmod +x /etc/profile.d/gradle.sh
             source /etc/profile.d/gradle.sh
-            cd /home/prj1/rest-test-ci-master
+            cd /home/prj1/rest-test-ci
             gradle installSumService
+
+      - name: update project
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{secrets.DEPLOY_HOST}}
+          key: ${{secrets.DEPLOY_KEY}}
+          username: ${{secrets.DEPLOY_USERNAME}}
+          script: |
+            cd /home/prj1/rest-test-ci
+            git pull
 
       - name: run java
         uses: appleboy/ssh-action@master
@@ -35,5 +45,6 @@ jobs:
           username: ${{secrets.DEPLOY_USERNAME}}
           script: |
             sudo fuser -n tcp -k 8005
-            cd /home/prj1/rest-test-ci-master/build
+            cd /home/prj1/rest-test-ci/build
             java -jar sum_service.jar
+            sudo fuser -n tcp -k 8005
