@@ -25,5 +25,5 @@ jobs:
           host: ${{secrets.DEPLOY_HOST}}
           key: ${{secrets.DEPLOY_KEY}}
           username: ${{secrets.DEPLOY_USERNAME}}
-          script:|
+          script: |
           java --version
