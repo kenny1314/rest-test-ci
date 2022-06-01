@@ -32,7 +32,7 @@ public class MainController {
 
     @GetMapping("/")
     public String main() {
-        return "Hello Vanya";
+        return "Hello Igor";
     }
 
     @PostMapping("/add")
