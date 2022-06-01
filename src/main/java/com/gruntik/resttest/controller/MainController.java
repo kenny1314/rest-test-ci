@@ -31,8 +31,8 @@ public class MainController {
     }
 
     @GetMapping("/")
-    public String main(){
-        return "I'm alive";
+    public String main() {
+        return "Hello Vanya";
     }
 
     @PostMapping("/add")
